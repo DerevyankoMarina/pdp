@@ -1,0 +1,13 @@
+//global
+npm install --global gulp
+
+//for project
+npm install --save-dev gulp
+
+create gulpfile.js
+
+npm install --save-dev gulp-stylus
+
+npm install --save-dev gulp-watch
+
+
