@@ -1,7 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 html,
 body,
 div,
@@ -90,7 +86,6 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -125,6 +120,51 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+@font-face {
+  font-family: 'latoregular';
+  src: url("../fonts/lato/lato-regular-webfont.eot");
+  src: url("../fonts/lato/lato-regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato/lato-regular-webfont.woff2") format('woff2'), url("../fonts/lato/lato-regular-webfont.woff") format('woff'), url("../fonts/lato/lato-regular-webfont.ttf") format('truetype'), url("../fonts/lato/lato-regular-webfont.svg#latoregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latolight';
+  src: url("../fonts/lato/lato-light-webfont.eot");
+  src: url("../fonts/lato/lato-light-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato/lato-light-webfont.woff2") format('woff2'), url("../fonts/lato/lato-light-webfont.woff") format('woff'), url("../fonts/lato/lato-light-webfont.ttf") format('truetype'), url("../fonts/lato/lato-light-webfont.svg#latolight") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latoblack';
+  src: url("../fonts/lato/lato-black-webfont.eot");
+  src: url("../fonts/lato/lato-black-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato/lato-black-webfont.woff2") format('woff2'), url("../fonts/lato/lato-black-webfont.woff") format('woff'), url("../fonts/lato/lato-black-webfont.ttf") format('truetype'), url("../fonts/lato/lato-black-webfont.svg#latoblack") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latobold';
+  src: url("../fonts/lato/lato-bold-webfont.eot");
+  src: url("../fonts/lato/lato-bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato/lato-bold-webfont.woff2") format('woff2'), url("../fonts/lato/lato-bold-webfont.woff") format('woff'), url("../fonts/lato/lato-bold-webfont.ttf") format('truetype'), url("../fonts/lato/lato-bold-webfont.svg#latobold") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latoitalic';
+  src: url("../fonts/lato/lato-italic-webfont.eot");
+  src: url("../fonts/lato/lato-italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/lato/lato-italic-webfont.woff2") format('woff2'), url("../fonts/lato/lato-italic-webfont.woff") format('woff'), url("../fonts/lato/lato-italic-webfont.ttf") format('truetype'), url("../fonts/lato/lato-italic-webfont.svg#latoitalic") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*common styles*/
+html {
+  height: 100%;
+}
+body {
+  font: 16px/1.25 'latoregular', Arial, sans-serif;
+  color: $text_color;
+  min-width: 730px;
+  height: 100%;
 }
 li {
   background: #b94a48;

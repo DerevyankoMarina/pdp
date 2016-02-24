@@ -8,8 +8,6 @@ gulp.task('default', [
   'watcher'
 ]);
 
-// Get one .styl file and render
-
 gulp.task('convertCss', function () {
   return gulp.src('./css/all.styl')
     .pipe(stylus())
