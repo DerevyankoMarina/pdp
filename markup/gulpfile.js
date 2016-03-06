@@ -1,43 +1,112 @@
 // include the required packages.
 var gulp = require('gulp');
+var jade = require('gulp-jade');
 var stylus = require('gulp-stylus');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var watch = require('gulp-watch');
 var del = require('del');
+var uglify = require('gulp-uglify');
+var cssmin = require('gulp-cssmin');
+var imagemin = require('gulp-imagemin');
 
-gulp.task('default', [
-  //'copy',
-  'clean',
-  'convertCss',
-  'watcher'
-]);
+
+var path = {
+  build: {
+    html: 'build/',
+    js: 'build/js/',
+    css: 'build/css/',
+    img: 'build/images/',
+    fonts: 'build/fonts/'
+  },
+  src: {
+    html: 'src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+    js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+    style: 'src/stylus/main.styl',
+    img: 'src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    fonts: 'src/fonts/**/*.*'
+  },
+  watch: {
+    html: 'src/**/*.jade',
+    js: 'src/js/**/*.js',
+    style: 'src/stylus/**/*.styl',
+    img: 'src/images/**/*.*',
+    fonts: 'src/fonts/**/*.*'
+  },
+  clean: './build'
+};
+
+gulp.task('html:build', function() {
+  return gulp.src(path.src.html)
+      .pipe(jade())
+      .pipe(gulp.dest(path.build.html))
+});
+
+gulp.task('fonts:build', function() {
+  return gulp.src(path.src.fonts)
+      .pipe(gulp.dest(path.build.fonts))
+});
+
+gulp.task('images:build', function() {
+  return gulp.src(path.src.img)
+      .pipe(gulp.dest(path.build.img))
+});
+
+gulp.task('js:build', function () {
+  return gulp.src(path.src.js) //Найдем наш main файл
+      .pipe(sourcemaps.init()) //Инициализируем sourcemap
+      .pipe(uglify()) //Сожмем наш js
+      .pipe(sourcemaps.write()) //Пропишем карты
+      .pipe(gulp.dest(path.build.js)); //Выплюнем готовый файл в build
+});
 
 gulp.task('clean', function () {
-  return del('build')
+  return del(path.clean)
 });
 
-gulp.task('convertCss', function () {
-  return gulp.src('./css/all.styl')
+gulp.task('css:build', function () {
+  return gulp.src(path.src.style)
     .pipe(sourcemaps.init())
     .pipe(stylus())
+      /*    .pipe(autoprefixer({ TODO: fix autoprefixer
+        browsers: ['last 2 versions'],
+        cascade: false
+      }))*/
+    .pipe(cssmin())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./build/css'));
+    .pipe(gulp.dest(path.build.css));
 });
-
-//gulp.task('copy', function () {
-//  return gulp.src('./fonts/**')
-//      .pipe(gulp.dest('./build'));
-//});
 
 
 gulp.task('watcher', function(){
-  watch(['./css/**/*.*'], function(event, cb) {
-    gulp.start('convertCss');
-  })
+  watch([path.watch.style], function(event, cb) {
+    gulp.start('css:build');
+  });
+
+  watch([path.watch.html], function(event, cb) {
+    gulp.start('html:build');
+  });
+  watch([path.watch.js], function(event, cb) {
+    gulp.start('js:build');
+  });
+  watch([path.watch.img], function(event, cb) {
+    gulp.start('images:build');
+  });
+  watch([path.watch.fonts], function(event, cb) {
+    gulp.start('fonts:build');
+  });
 });
 
+gulp.task('build', [
+  'html:build',
+  'js:build',
+  'css:build',
+  'fonts:build',
+  'images:build'
+]);
 
+
+gulp.task('default', ['build', 'watcher']);
 // https://www.npmjs.com/package/gulp-stylus
 // https://www.npmjs.com/package/gulp-watch
 // https://www.youtube.com/watch?v=Kh4eYdd8O4w&list=PLLnpHn493BHE2RsdyUNpbiVn-cfuV7Fos&index=1
