@@ -9,6 +9,11 @@ create gulpfile.js
 npm install --save-dev gulp-stylus
 
 npm install --save-dev gulp-watch
+.....
 
-
-??? build folder - structure?
++ стилус линтер
+- спрайты
++ копирование в билд
++ темплейтор **
+- .editorconfig
++ gitignore

@@ -9,14 +9,77 @@ body
   color: $text_color
   min-width: 730px
   height: 100%
+  background #f7f7f7
 
 
-li
-  background: grey;
-  width 50%
+
+/*section*/
+.page__section
+  width 100%
+
+.section
+  width 64%
   margin 0 auto
-  border-radius: 10px
-  color #b94a48
+  padding 120px 0
+
+.section__intro
+  padding-top 25px
+
+.page__section--bg-intro
+  background url( img_path + "header_bg.jpg") no-repeat
+  background-size cover
+  min-height 1032px
+  color #ffffff
+
+.page__section--bg-white
+  background #ffffff
+
+.page__section--bg-laptop
+  background url(img_path + "laptop_bg.png") no-repeat
+  background-size cover
+  min-height 1032px
 
 
+/*header*/
+.header
+.menu
+  display flex
+  justify-content space-between
+
+
+.header__menu
+  width 50%
+
+/*logo*/
+.logo
+  display inline-block
+  text-indent -9999px
+  background url( img_path + "logo.png") no-repeat
+  background-size contain
+
+.logo--little
+  width 70px
+  height 70px
+
+.logo--big
+  width 190px
+  height 200px
+
+/*.header__menu*/
+.menu__item
+  a
+    text-decoration none
+    color inherit
+
+/*footer*/
+
+.footer
+  padding 20px 0
+  font-weight 700
+  background #00ccff
+  color #ffffff
+  text-align center
+
+  span
+    color #0d97b9
 

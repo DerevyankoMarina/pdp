@@ -1,0 +1,8 @@
+
+mixin sectionTitle(firstWord, secondWord, subtitle, desc)
+    .section__title.title
+        .title__header.title-header
+            h2.title-header__main= firstWord + " "
+                span.title-header__main--orange= secondWord
+            p.title-header__main-secondary= subtitle
+        p.title__desc= desc

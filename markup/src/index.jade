@@ -1,60 +1,24 @@
+include templates/helpers/_variables
+include templates/helpers/_mixins
+
 doctype html
 html(lang='EN')
     head
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1.0')
-        meta(http-equiv='X-UA-Compatible', content='IE=edge')
-        title Fe
-        link(href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,100', rel='stylesheet', type='text/css')
-        link(rel='stylesheet', href='css/main.css')
-    body
-        .section
-            header.header
-                .header__logo
-                    a.logo.logo--little(href='#') fe
-                nav.header__menu
-                    ul.menu
-                        li.menu__item
-                            a(href='#') Home
-                        li
-                            a(href='#') About us
-                        li
-                            a(href='#') Products
-                        li
-                            a(href='#') Testimonials
-                        li
-                            a(href='#') Contacts
-            div
-                p get ready
-                h1.logo.logo--big fe
-                p
-                    | Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est in volutpat amet sodales, porttitor bibendum facilisi suspendisse, aliquam ipsum ante
-                .btn
+        include templates/meta/head
+    body.page
+        include templates/components/section_header
         main
-            section.section.section--bg-white
-                .section__title.title
-                    .title__header.title-header
-                        h2.title-header__main
-                            | about
-                            span.title-header__main--orange us
-                        p.title-header__main-secondary What We Do With Love
-                    p.title__desc
-                        | Lorem ipsum dolor sit amet, libero turpis non cras ligula, id commodo, aenean est in volutpat amet sodales, porttitor bibendum facilisi suspendisse
-                .section__tabs
-                    ul.tabs
-                        li.tabs__item.tabs__item--active
-                            a(href='#') welcome
-                        li.tabs__item
-                            a(href='#') Vision
-                        li.tabs__item
-                            a(href='#') mission
-                        li.tabs__item
-                            a(href='#') mission
-                .section__article
-                    ul.articles
-                        li.articles__item
-            section.section.section--bg-grey
-            section.section.section--bg-grey
-            section.section.section--bg-grey
-            section.section.section--bg-grey
-            section.section.section--bg-grey
+            include templates/components/section_about
+            include templates/components/section_skills
+            include templates/components/section_team
+            include templates/components/section_services
+            include templates/components/section_fun
+            include templates/components/section_work
+            include templates/components/section_addwork
+            include templates/components/section_twit
+            include templates/components/section_testimonial
+            include templates/components/section_plant
+            include templates/components/section_slider
+            include templates/components/section_touch
+
+    include templates/components/footer

@@ -8,6 +8,8 @@ var watch = require('gulp-watch');
 var del = require('del');
 var uglify = require('gulp-uglify');
 var cssmin = require('gulp-cssmin');
+
+var stylint = require('gulp-stylint');
 var imagemin = require('gulp-imagemin');
 
 
@@ -23,6 +25,7 @@ var path = {
     html: 'src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
     js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
     style: 'src/stylus/main.styl',
+    allStyles: 'src/stylus/*.styl',
     img: 'src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
     fonts: 'src/fonts/**/*.*'
   },
@@ -38,7 +41,7 @@ var path = {
 
 gulp.task('html:build', function() {
   return gulp.src(path.src.html)
-      .pipe(jade())
+      .pipe( jade({pretty: true}) )
       .pipe(gulp.dest(path.build.html))
 });
 
@@ -64,6 +67,13 @@ gulp.task('clean', function () {
   return del(path.clean)
 });
 
+gulp.task('stylus:lint', function () {
+  return gulp.src(path.src.allStyles)
+    .pipe(stylint())
+    .pipe(stylint.reporter());
+});
+
+
 gulp.task('css:build', function () {
   return gulp.src(path.src.style)
     .pipe(sourcemaps.init())
@@ -81,6 +91,7 @@ gulp.task('css:build', function () {
 gulp.task('watcher', function(){
   watch([path.watch.style], function(event, cb) {
     gulp.start('css:build');
+    gulp.start('stylus:lint');
   });
 
   watch([path.watch.html], function(event, cb) {
@@ -107,12 +118,10 @@ gulp.task('build', [
 
 
 gulp.task('default', ['build', 'watcher']);
+
+
 // https://www.npmjs.com/package/gulp-stylus
 // https://www.npmjs.com/package/gulp-watch
 // https://www.youtube.com/watch?v=Kh4eYdd8O4w&list=PLLnpHn493BHE2RsdyUNpbiVn-cfuV7Fos&index=1
-// https://habrahabr.ru/post/208890/
-
-
-// https://www.npmjs.com/package/gulp-autoprefixer
-
+// https://habrahabr.ru/post/208890
 
