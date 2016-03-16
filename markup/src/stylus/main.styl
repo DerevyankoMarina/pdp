@@ -12,7 +12,6 @@ body
   background #f7f7f7
 
 
-
 /*section*/
 .page__section
   width 100%
@@ -22,11 +21,14 @@ body
   margin 0 auto
   padding 120px 0
 
-.section__intro
+.section--intro
+  padding-top 0
+
+.section__header
   padding-top 25px
 
 .page__section--bg-intro
-  background url( img_path + "header_bg.jpg") no-repeat
+  background url( img_path + "header_bg.jpg") no-repeat center bottom
   background-size cover
   min-height 1032px
   color #ffffff
@@ -35,20 +37,26 @@ body
   background #ffffff
 
 .page__section--bg-laptop
-  background url(img_path + "laptop_bg.png") no-repeat
+  background url(img_path + "laptop_bg.png") no-repeat center bottom
   background-size cover
   min-height 1032px
 
+.section__content
+  margin-top  135px
+
+.content
+  text-align center
 
 /*header*/
 .header
 .menu
   display flex
   justify-content space-between
+  align-items center
 
 
 .header__menu
-  width 50%
+  /*width 50%*/
 
 /*logo*/
 .logo
@@ -67,9 +75,98 @@ body
 
 /*.header__menu*/
 .menu__item
+  margin 0 20px
+
   a
     text-decoration none
     color inherit
+
+    &:hover
+      font-weight 700
+
+
+
+.content
+  text-align center
+
+.content__logo
+  margin-bottom 75px
+
+
+.text-block--intro
+  font-size 22px
+  font-weight 700
+  width 75%
+  margin 0 auto
+
+
+.title
+  display flex
+  margin-bottom 40px
+  text-transform uppercase
+  font-weight 900
+  justify-content space-between
+  align-items flex-start
+
+.title--intro
+  display block
+  font-weight 700
+  font-size 22px
+
+.title--simple
+  font-size 24px
+
+.title-header
+  margin-right 5%
+
+.title-header__main
+  color #00ccff
+  font-size 30px
+  white-space nowrap
+
+.title-header__main--orange
+  color #ff9900;
+
+.title-header__main-secondary
+  color #666
+  font-size 18px
+  font-weight 400
+  text-transform capitalize
+  white-space nowrap
+
+
+
+.title__separator
+  /*flex-grow 1*/
+
+.title__desc
+  align-self flex-end
+  text-transform none
+  font-weight 400
+  margin 0 0 30px 3%
+
+.section__btn
+  margin 120px auto
+
+.btn
+  position relative
+  width 46px
+  height 68px
+  border solid 3px #ffffff
+  border-radius 26px
+
+  &:after
+    content ""
+    position absolute
+    top 50%
+    left 50%
+    margin -24px 0 0 -9px
+    width 12px
+    height 18px
+    border solid 3px #ffffff
+    border-radius 8px
+
+
 
 /*footer*/
 
@@ -82,4 +179,3 @@ body
 
   span
     color #0d97b9
-
