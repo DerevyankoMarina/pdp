@@ -12,6 +12,34 @@ body
   background #f7f7f7
 
 
+/*slope*/
+.container
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 150px; //??
+
+.se-slope
+  height: 170px;
+  background: white;
+  transform: rotate(-5deg);
+  width: 200%;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+
+
+.se-slope:after
+  position: absolute;
+  background: #0cf;
+  transform: rotate(10deg);
+  height: 100%;
+  width: 75%;
+  content: "";
+  display: block;
+  top: 0;
+  left: 24%;
+
 /*section*/
 .page__section
   width 100%
@@ -26,12 +54,28 @@ body
 
 .section__header
   padding-top 25px
+  position relative
+  z-index 3
 
 .page__section--bg-intro
-  background url( img_path + "header_bg.jpg") no-repeat center bottom
+  position relative
+  background url( img_path + "header_bg_img.png") no-repeat center bottom
   background-size cover
   min-height 1032px
   color #ffffff
+  z-index 1
+
+.page__section--bg-intro:after
+  position absolute
+  content ""
+  top 0
+  bottom 0
+  left 0
+  right 0
+  background url( img_path + "header_grid.png") no-repeat center bottom
+  background-size cover
+  z-index 2
+
 
 .page__section--bg-white
   background #ffffff
@@ -43,6 +87,8 @@ body
 
 .section__content
   margin-top  135px
+  position relative
+  z-index 3
 
 .content
   text-align center
