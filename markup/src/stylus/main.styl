@@ -62,7 +62,7 @@ body
 
 .page__section--bg-intro
   position relative
-  background url( img_path + "header_bg_img.png") no-repeat center bottom
+  background url( $img_path + "header_bg_img.png") no-repeat center bottom
   background-size cover
   min-height 1032px
   color #ffffff
@@ -76,7 +76,7 @@ body
   bottom 0
   left 0
   right 0
-  background url( img_path + "header_grid.png") no-repeat center bottom
+  background url( $img_path + "header_grid.png") no-repeat center bottom
   background-size cover
   z-index 2
 
@@ -85,7 +85,7 @@ body
   background #ffffff
 
 .page__section--bg-laptop
-  background url(img_path + "laptop_bg.png") no-repeat center bottom
+  background url($img_path + "laptop_bg2.png") no-repeat center bottom
   background-size cover
   min-height 1032px
 
@@ -96,6 +96,9 @@ body
 
 .content
   text-align center
+
+.content__text-block
+  margin-bottom 100px
 
 /*header*/
 .header
@@ -112,7 +115,7 @@ body
 .logo
   display inline-block
   text-indent -9999px
-  background url( img_path + "logo.png") no-repeat
+  background url( $img_path + "logo.png") no-repeat
   background-size contain
 
 .logo--little
@@ -142,13 +145,18 @@ body
 .content__logo
   margin-bottom 75px
 
+.text-block
+  width 75%
+  text-align center
+  margin-left auto
+  margin-right auto
 
 .text-block--intro
   font-size 22px
   font-weight 700
-  width 75%
-  margin 0 auto
 
+.text-block--light
+  color $text_lighter_color
 
 .title
   display flex
@@ -164,7 +172,22 @@ body
   font-size 22px
 
 .title--simple
+  display block
   font-size 24px
+  text-align center
+
+.title--sub
+  color #333
+  font-size 20px
+  text-transform uppercase
+  text-align center
+  font-weight 700
+
+.title--desc
+  color #00ccff
+  text-transform: capitalize;
+  font-size: 12px;
+  text-align: center;
 
 .title-header
   margin-right 5%
@@ -178,13 +201,10 @@ body
   color #ff9900;
 
 .title-header__main-secondary
-  color #666
   font-size 18px
   font-weight 400
   text-transform capitalize
   white-space nowrap
-
-
 
 .title__separator
   /*flex-grow 1*/
@@ -194,6 +214,11 @@ body
   text-transform none
   font-weight 400
   margin 0 0 30px 3%
+
+.page__section--bg-laptop
+  .title-header__main--orange, .title-header__main-secondary, .title__desc
+    color #fff
+
 
 .section__btn
   margin 120px auto
@@ -230,7 +255,7 @@ body
     background #00ccff
 
     a
-      color #fff
+      color #333
 
   a
     display inline-block
@@ -311,6 +336,44 @@ body
 
 .article-content
   flex-basis 75%
+
+/*inline-list-set*/
+
+.inline-list-set
+  display flex
+  justify-content space-between
+
+.inline-list-set__item
+  flex-basis 25%
+  padding 0 10px
+
+
+.article-block p
+  text-align center
+
+.article-block__diagram
+  margin-bottom 45px
+  text-align center
+
+  span
+    color #333
+    font-size 30px
+    font-weight 700
+
+.article-block__title
+  margin-bottom 15px
+
+.article-block--dark
+  text-align center
+
+  .title--sub, .text-block--light
+    color #fff
+    text-align justify
+
+  .text-block--light
+    font-size 12px
+
+
 
 /*footer*/
 
