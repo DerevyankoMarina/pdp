@@ -15,28 +15,28 @@ var imagemin = require('gulp-imagemin');
 
 var path = {
   build: {
-    html: 'build/',
-    js: 'build/js/',
-    css: 'build/css/',
-    img: 'build/images/',
-    fonts: 'build/fonts/'
+    html: 'markup/build/',
+    js: 'markup/build/js/',
+    css: 'markup/build/css/',
+    img: 'markup/build/images/',
+    fonts: 'markup/build/fonts/'
   },
   src: {
-    html: 'src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-    js: 'src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
-    style: 'src/stylus/main.styl',
-    allStyles: 'src/stylus/*.styl',
-    img: 'src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-    fonts: 'src/fonts/**/*.*'
+    html: 'markup/src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+    js: 'markup/src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+    style: 'markup/src/stylus/main.styl',
+    allStyles: 'markup/src/stylus/*.styl',
+    img: 'markup/src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    fonts: 'markup/src/fonts/**/*.*'
   },
   watch: {
-    html: 'src/**/*.jade',
-    js: 'src/js/**/*.js',
-    style: 'src/stylus/**/*.styl',
-    img: 'src/images/**/*.*',
-    fonts: 'src/fonts/**/*.*'
+    html: 'markup/src/**/*.jade',
+    js: 'markup/src/js/**/*.js',
+    style: 'markup/src/stylus/**/*.styl',
+    img: 'markup/src/images/**/*.*',
+    fonts: 'markup/src/fonts/**/*.*'
   },
-  clean: './build'
+  clean: 'markup/./build'
 };
 
 gulp.task('html:build', function() {

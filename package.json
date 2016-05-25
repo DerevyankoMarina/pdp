@@ -2,11 +2,11 @@
   "name": "markup",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "markup/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Maryna Derevianko",
   "license": "ISC",
   "devDependencies": {
     "del": "^2.2.0",
