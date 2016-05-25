@@ -15,11 +15,11 @@ var imagemin = require('gulp-imagemin');
 
 var path = {
   build: {
-    html: 'markup/build/',
-    js: 'markup/build/js/',
-    css: 'markup/build/css/',
-    img: 'markup/build/images/',
-    fonts: 'markup/build/fonts/'
+    html: 'build/',
+    js: 'build/js/',
+    css: 'build/css/',
+    img: 'build/images/',
+    fonts: 'build/fonts/'
   },
   src: {
     html: 'markup/src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
@@ -36,7 +36,7 @@ var path = {
     img: 'markup/src/images/**/*.*',
     fonts: 'markup/src/fonts/**/*.*'
   },
-  clean: 'markup/./build'
+  clean: './build'
 };
 
 gulp.task('html:build', function() {
