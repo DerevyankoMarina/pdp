@@ -78,7 +78,7 @@ gulp.task('css:build', function () {
   return gulp.src(path.src.style)
     .pipe(sourcemaps.init())
     .pipe(stylus())
-          .pipe(autoprefixer({ TODO: fix autoprefixer
+          .pipe(autoprefixer({ //TODO: fix autoprefixer
         browsers: ['last 2 versions'],
         cascade: false
       }))
