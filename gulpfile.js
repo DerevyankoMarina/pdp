@@ -22,11 +22,11 @@ var path = {
     fonts: 'build/fonts/'
   },
   src: {
-    html: 'markup/src/*.jade', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-    js: 'markup/src/js/main.js',//В стилях и скриптах нам понадобятся только main файлы
+    html: 'markup/src/*.jade',
+    js: 'markup/src/js/main.js',
     style: 'markup/src/stylus/main.styl',
     allStyles: 'markup/src/stylus/*.styl',
-    img: 'markup/src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    img: 'markup/src/images/**/*.*',
     fonts: 'markup/src/fonts/**/*.*'
   },
   watch: {
@@ -56,11 +56,11 @@ gulp.task('images:build', function() {
 });
 
 gulp.task('js:build', function () {
-  return gulp.src(path.src.js) //Найдем наш main файл
-      .pipe(sourcemaps.init()) //Инициализируем sourcemap
-      .pipe(uglify()) //Сожмем наш js
-      .pipe(sourcemaps.write()) //Пропишем карты
-      .pipe(gulp.dest(path.build.js)); //Выплюнем готовый файл в build
+  return gulp.src(path.src.js)
+      .pipe(sourcemaps.init())
+      .pipe(uglify())
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest(path.build.js));
 });
 
 gulp.task('clean', function () {
@@ -78,10 +78,10 @@ gulp.task('css:build', function () {
   return gulp.src(path.src.style)
     .pipe(sourcemaps.init())
     .pipe(stylus())
-      /*    .pipe(autoprefixer({ TODO: fix autoprefixer
+          .pipe(autoprefixer({ TODO: fix autoprefixer
         browsers: ['last 2 versions'],
         cascade: false
-      }))*/
+      }))
     .pipe(cssmin())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.build.css));

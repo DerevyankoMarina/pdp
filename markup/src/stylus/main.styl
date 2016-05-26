@@ -158,6 +158,11 @@ body
 .text-block--light
   color $text_lighter_color
 
+.text-block--lato-light
+  font-family latolight
+  font-size 52px
+  color #333
+
 .title
   display flex
   margin-bottom 40px
@@ -188,6 +193,9 @@ body
   text-transform: capitalize;
   font-size: 12px;
   text-align: center;
+
+.title--desc--large
+  font-size 22px
 
 .title-header
   margin-right 5%
@@ -304,7 +312,7 @@ body
     left 0
     bottom  0
 
-  &:nth-child(even):after
+  &:nth-child(even):after, &:nth-last-child(2):before, &:last-child:before
     display none
 
   h3
@@ -312,36 +320,47 @@ body
     font-weight 700
     margin 10px 0
 
-  .article-icon
-    color #fff
-    background #eaeaea
-    transform skew(-10deg)
-    text-align center
-    margin-right 10%
-    margin-left 15px
-    padding 7px 5px
-
-    .icon-stumbleupon
-      margin-left -8px
-      padding-right 20px
-
-    span
-      font-size 60px
-      &:before
-        transform skew(10deg)
-
-.articles-set__item--active
-  .article-icon
-    background #00ccff
 
 .article-content
   flex-basis 75%
+
+.article-icon
+  color #fff
+  background #0cf
+  transform skew(-10deg)
+  text-align center
+  margin-right 10%
+  margin-left 15px
+  padding 7px 5px
+
+  .icon-stumbleupon
+    margin-left -8px
+    padding-right 20px
+
+  span
+    font-size 60px
+    &:before
+      transform skew(10deg)
+
+.article-icon--grey
+  background #eaeaea
+
+.article-icon--black
+  font-size 60px
+  color #333
+  margin-bottom 35px
 
 /*inline-list-set*/
 
 .inline-list-set
   display flex
   justify-content space-between
+
+.inline-list-set--bg
+  padding 40px 20px
+  background #fff
+  border-top 1px solid #ccc
+  border-bottom  1px solid #ccc
 
 .inline-list-set__item
   flex-basis 25%
